@@ -4,10 +4,10 @@
     
     "dependencies": {
         "uglify-js": "2.3.x",
-        "node-static": "~0.6.x",
+        "node-static": "0.6.x",
         "toobusy": "0.2.x",
         "jsdom": "0.6.x"
-    }
+    },
     
     "repository": {
         "type": "git",
