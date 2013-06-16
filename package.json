@@ -7,7 +7,10 @@
         "node-static": "0.6.x",
         "toobusy": "0.2.x",
         "jsdom": "0.6.x",
-        "cookie": "0.1.x"
+        "cookie": "0.1.x",
+        "levelup": "0.9.x",
+        "leveldown": "0.5.x",
+        "mkdirp": "0.3.x"
     },
     
     "repository": {
