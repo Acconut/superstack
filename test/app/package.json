@@ -1,0 +1,13 @@
+{
+    "name": "superstack-skeleton",
+    "version": "0.0.0",
+    
+    "dependencies": {
+        "superstack": "git://github.com/Acconut/superstack.git",
+        "ejs": "0.8.x"
+    },
+    
+    "scripts": {
+        "start": "node ../../start.js"
+    }
+}
