@@ -13,8 +13,16 @@
         "mkdirp": "0.3.x"
     },
     
+    "devDependencies": {
+        "request": "2.21.x"
+    },
+    
     "repository": {
         "type": "git",
         "url": "http://github.com/Acconut/superstack.git"
+    },
+    
+    "scripts": {
+        "test": "nodeunit ./test/index.js"
     }
 }
