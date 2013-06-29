@@ -165,7 +165,7 @@ Tests["Cookie"] = {
 
 Tests["Stop"] = function(test) {
     child.on("close", function(code, signal) {
-        test.ok(signal === "SIGINT", "Process exited after SIGINT");
+        test.equal(signal, "SIGINT", "Process exited after SIGINT");
         test.done();
     });
     child.kill("SIGINT");
