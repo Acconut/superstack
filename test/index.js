@@ -13,7 +13,7 @@ Tests["Start"] = function(test) {
     child = fork(path.join(__filename, "../../lib/start.js"), [], {
         cwd: "./test/app/",
         // Set to false to see superstack's output
-        silent: true
+        silent: false
     });
     
     console.log("Test app should listen on %s", config.port);
