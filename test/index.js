@@ -4,7 +4,8 @@ var Tests = module.exports,
     path = require("path"),
     request = require("request"),
     qs = require("querystring"),
-    base = "http://localhost:80/",
+    config = require("./app/config.js"),
+    base = "http://localhost:" + config.port + "/",
     child;
     
 Tests["Start"] = function(test) {
@@ -14,6 +15,9 @@ Tests["Start"] = function(test) {
         // Set to false to see superstack's output
         silent: true
     });
+    
+    console.log("Test app should listen on %s", config.port);
+    
     child.on("message", function(msg) {
         if(msg === "READY") {
             test.ok(true, "Setup finished");
