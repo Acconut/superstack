@@ -16,7 +16,7 @@ module.exports = {
     /**
      * The port to listen on
      */
-    port: 80,
+    port: 8080,
     
     template: {
         
