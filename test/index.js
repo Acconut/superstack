@@ -31,6 +31,7 @@ Tests["Start"] = function(test) {
 
 Tests["Responses"] = {
     "Home": function(test) {
+        test.expect(3);
         request({
             url: base
         }, function(err, res, body) {
@@ -42,6 +43,7 @@ Tests["Responses"] = {
     },
     
     "Not found": function(test) {
+        test.expect(4);
         request({
             url: base + "iamsocoolbutthiswontwork"
         }, function(err, res, body) {
@@ -54,6 +56,7 @@ Tests["Responses"] = {
     },
     
     "Static": function(test) {
+        test.expect(3);
         request({
             url: base + "info.txt"
         }, function(err, res, body) {
@@ -67,6 +70,7 @@ Tests["Responses"] = {
 
 Tests["Methods"] = {
     "Simple": function(test) {
+        test.expect(3);
         callMethod("simple", {}, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
@@ -77,6 +81,7 @@ Tests["Methods"] = {
     },
     
     "Data": function(test) {
+        test.expect(3);
         callMethod("length", { str: "hello" }, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
@@ -86,6 +91,7 @@ Tests["Methods"] = {
     },
     
     "Not found": function(test) {
+        test.expect(2);
         callMethod("stillcool", {}, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 404, "Status code is 404");
@@ -97,6 +103,7 @@ Tests["Methods"] = {
 var sessionCookie = "";
 Tests["Session"] = {
     "Set": function(test) {
+        test.expect(4);
         callMethod("setSession", { value: "bar" }, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
@@ -108,6 +115,7 @@ Tests["Session"] = {
     },
     
     "Get": function(test) {
+        test.expect(3);
         callMethod("getSession", {}, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
@@ -117,6 +125,7 @@ Tests["Session"] = {
     },
     
     "Delete": function(test) {
+        test.expect(5);
         callMethod("deleteSession", {}, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
@@ -132,6 +141,7 @@ Tests["Session"] = {
 
 Tests["Cookie"] = {
     "Set": function(test) {
+        test.expect(3);
         callMethod("setCookie", { value: "bar" }, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
@@ -141,6 +151,7 @@ Tests["Cookie"] = {
     },
     
     "Get": function(test) {
+        test.expect(3);
         callMethod("getCookie", {}, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
@@ -150,11 +161,12 @@ Tests["Cookie"] = {
     },
     
     "Delete": function(test) {
+        test.expect(5);
         callMethod("deleteCookie", {}, function(err, res, body) {
             test.ifError(err);
             test.equal(res.statusCode, 200, "Status code is OK");
             callMethod("getCookie", {}, function(err, res, body) {
-            test.ifError(err);
+                test.ifError(err);
                 test.equal(res.statusCode, 200, "Status code is OK");
                 test.equal(body, '{"error":null,"data":null}', "Cookie is deleted");
                 test.done();
@@ -164,6 +176,7 @@ Tests["Cookie"] = {
 };
 
 Tests["Stop"] = function(test) {
+    test.expect(1);
     child.on("close", function(code, signal) {
         test.ok(true, "Process exited");
         test.done();
