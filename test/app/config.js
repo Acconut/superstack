@@ -18,6 +18,11 @@ module.exports = {
      */
     port: 8080,
     
+    /**
+     * The host
+     */
+    host: "localhost",
+    
     template: {
         
         /**
