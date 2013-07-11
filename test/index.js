@@ -65,6 +65,20 @@ Tests["Responses"] = {
             test.equal(body, "this is an info", "Content is right");
             test.done();
         });
+    },
+    
+    "Redirect": function(test) {
+        test.expect(4);
+        request({
+            url: base + "redirect",
+            followRedirect: false // Don't follow the redirect
+        }, function(err, res, body) {
+            test.ifError(err);
+            test.equal(res.statusCode, 301, "Custom status code");
+            test.equal(res.headers["location"], "/newurl", "Location header is set");
+            test.equal(body, "", "Empty body");
+            test.done();
+        });
     }
 };
 
